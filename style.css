@@ -112,7 +112,7 @@ p { margin: 0 0 1em; }
   font-style: italic;
   color: #c9b48f;
   font-size: 1.25rem;
-  margin: 0 0 32px;
+  margin: 0 0 14px;
   opacity: 0;
   animation: fade-in 0.9s ease-out 3.1s forwards;
 }
@@ -305,15 +305,7 @@ p { margin: 0 0 1em; }
 .t5 { transform: rotate(-1.5deg); }
 .t6 { transform: rotate(1deg); }
 
-/* --- The playtest and the end --------------------------------------------------------------------- */
-
-.playtest {
-  padding: 80px 16px;
-  display: grid;
-  place-items: center;
-}
-
-.playtest .sheet { max-width: 640px; text-align: center; }
+/* --- The end ------------------------------------------------------------------------------------- */
 
 .footer {
   text-align: center;
@@ -378,3 +370,44 @@ p { margin: 0 0 1em; }
 }
 
 .viewer-close:hover, .viewer-close:focus-visible { color: var(--accent-light); }
+
+/* --- The hook, the what-ifs and the country lines ------------------------------------------------ */
+
+.hook {
+  color: #f1e4c8;
+  font-size: 1.1rem;
+  margin: 0 0 30px;
+  opacity: 0;
+  animation: fade-in 0.9s ease-out 3.3s forwards;
+}
+
+.intro { font-size: 1.1rem; }
+
+.whatifs {
+  list-style: none;
+  padding: 0;
+  margin: 26px 0 30px;
+  display: grid;
+  gap: 16px;
+}
+
+.whatifs li {
+  padding-left: 16px;
+  border-left: 3px solid var(--accent);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.stamp {
+  display: block;
+  font-style: normal;
+  font-family: "Caslon", Georgia, serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.teaser { font-style: italic; color: #5a5048; }

@@ -6,10 +6,10 @@ CSS, no build step, no scripts.
 
 ## Publish on GitHub Pages
 
-1. Create an empty repository on GitHub, for example `onemoreyear-site`, and push this folder to it:
-   `git remote add origin https://github.com/<you>/onemoreyear-site.git` and `git push -u origin main`.
+1. Create an empty repository on GitHub, for example `OneMoreYearWeb`, and push this folder to it:
+   `git remote add origin https://github.com/jfrodin/OneMoreYearWeb.git` and `git push -u origin main`.
 2. On GitHub: the repository, Settings, Pages, Source "Deploy from a branch", branch `main`, folder `/`.
-3. The page is at `https://<you>.github.io/onemoreyear-site/` after a minute.
+3. The page is at `https://jfrodin.github.io/OneMoreYearWeb/` after a minute.
 4. Later, a domain of your own (for example onemoreyeargame.com): add it under Settings, Pages,
    Custom domain, and point the domain's DNS at GitHub Pages as GitHub describes there.
 
@@ -28,7 +28,6 @@ All of it comes from the game (`E:\Dev\OneMoreYear`), so the page always looks l
 
 No AI-generated images, as in the game.
 
-## To do before it goes public
+## To do
 
-- The playtest section: put in the Discord invite and the download link when the test opens.
 - "Coming to Steam": a link to the store page once there is one.
