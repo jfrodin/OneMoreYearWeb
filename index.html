@@ -146,5 +146,28 @@
     <p class="small">Every face is drawn by the game itself. Textures from ambientCG (CC0). Typefaces Playfair Display, Lora, Libre Caslon Text and Cedarville Cursive, under the SIL Open Font License. No AI-generated art.</p>
   </footer>
 
+  <!-- A print from the album, large: click anywhere, press Escape or Close to put it back. -->
+  <dialog id="viewer" class="viewer" aria-label="Picture">
+    <figure class="shot viewer-print">
+      <img id="viewer-img" src="" alt="">
+      <figcaption id="viewer-caption"></figcaption>
+    </figure>
+    <button class="viewer-close" type="button">Close</button>
+  </dialog>
+  <script>
+    const viewer = document.getElementById("viewer");
+    const img = document.getElementById("viewer-img");
+    const caption = document.getElementById("viewer-caption");
+    document.querySelectorAll(".shots a").forEach(link => link.addEventListener("click", e => {
+      e.preventDefault();
+      const shot = link.querySelector("img");
+      img.src = link.href;
+      img.alt = shot.alt;
+      caption.textContent = link.parentElement.querySelector("figcaption").textContent;
+      viewer.showModal();
+    }));
+    viewer.addEventListener("click", () => viewer.close());
+    viewer.addEventListener("close", () => { img.src = ""; });
+  </script>
 </body>
 </html>

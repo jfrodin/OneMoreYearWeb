@@ -345,3 +345,36 @@ p { margin: 0 0 1em; }
   .shots { grid-template-columns: minmax(0, 1fr); }
   .wall { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* --- A print, large ------------------------------------------------------------------------------- */
+
+.viewer {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: min(1280px, 94vw);
+  overflow: visible;
+  cursor: zoom-out;
+}
+
+.viewer::backdrop { background: rgba(26, 18, 12, 0.88); }
+
+.viewer-print { transform: none; }
+.viewer-print:hover { transform: none; }
+.viewer-print img { max-height: 80vh; width: auto; margin: 0 auto; }
+
+.viewer-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: none;
+  color: var(--print);
+  font-family: "Caslon", Georgia, serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 4px;
+}
+
+.viewer-close:hover, .viewer-close:focus-visible { color: var(--accent-light); }
