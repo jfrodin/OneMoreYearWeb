@@ -44,7 +44,8 @@ p { margin: 0 0 1em; }
 /* --- The start: dark, the print developing, the name ------------------------------------------- */
 
 .hero {
-  min-height: min(100vh, 980px);
+  min-height: 100vh;
+  min-height: 100svh;
   display: grid;
   place-items: center;
   padding: 48px 16px 64px;
