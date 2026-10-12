@@ -1,0 +1,347 @@
+/* One More Year: the same dark, paper, ink and typefaces as the game. */
+
+@font-face { font-family: "Playfair"; src: url("fonts/PlayfairDisplay.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Caslon"; src: url("fonts/LibreCaslonText.ttf") format("truetype"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Lora"; src: url("fonts/Lora.ttf") format("truetype"); font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Lora"; src: url("fonts/Lora-Italic.ttf") format("truetype"); font-style: italic; font-weight: 400 700; font-display: swap; }
+@font-face { font-family: "Cedarville"; src: url("fonts/CedarvilleCursive.ttf") format("truetype"); font-display: swap; }
+
+:root {
+  --dark: #2a1d14;
+  --dark-soft: #3a2a1e;
+  --album: #f4e6c6;
+  --print: #f7f2e6;
+  --newsprint: #efe9dc;
+  --ink: #3b2a1e;
+  --muted: #7a6650;
+  --faint: #a8957c;
+  --accent: #c05a18;
+  --accent-light: #e8823c;
+  --shadow: 0 6px 18px rgba(20, 12, 6, 0.35);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--dark);
+  color: var(--ink);
+  font-family: "Lora", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 { font-weight: 700; line-height: 1.2; margin: 0 0 0.6em; }
+h2 { font-family: "Caslon", Georgia, serif; font-size: 2rem; color: var(--accent); }
+h3 { font-family: "Caslon", Georgia, serif; font-size: 1.15rem; color: var(--ink); }
+p { margin: 0 0 1em; }
+
+/* --- The start: dark, the print developing, the name ------------------------------------------- */
+
+.hero {
+  min-height: min(100vh, 980px);
+  display: grid;
+  place-items: center;
+  padding: 48px 16px 64px;
+  text-align: center;
+  color: var(--print);
+}
+
+.hero .by {
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: #c9b48f;
+  margin: 0;
+  font-size: 1.15rem;
+  opacity: 0;
+  animation: fade-in 0.8s ease-out 0.2s forwards;
+}
+
+.hero .maker {
+  font-family: "Playfair", serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 40px;
+  color: #f1e4c8;
+  opacity: 0;
+  animation: fade-in 0.8s ease-out 0.4s forwards;
+}
+
+.print {
+  margin: 0 auto;
+  background: var(--print);
+  box-shadow: var(--shadow);
+  border-radius: 3px;
+}
+
+.print-large {
+  width: min(340px, 78vw);
+  padding: 4% 4% 15%;
+  opacity: 0;
+  animation: fade-in 0.6s ease-out 1.1s forwards;
+}
+
+.print .photo { position: relative; aspect-ratio: 1; overflow: hidden; }
+.print .photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* The empty brown of a print before it develops; it fades and the face comes up through it. */
+.developer {
+  position: absolute;
+  inset: 0;
+  background: #b89a76;
+  animation: develop 2.4s cubic-bezier(0.55, 0, 0.75, 1) 1.4s forwards;
+}
+
+.hero h1 {
+  font-family: "Playfair", serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  letter-spacing: 0.12em;
+  color: var(--accent-light);
+  margin: 36px 0 8px;
+  opacity: 0;
+  animation: fade-in 0.9s ease-out 2.6s forwards;
+}
+
+.tagline {
+  font-style: italic;
+  color: #c9b48f;
+  font-size: 1.25rem;
+  margin: 0 0 32px;
+  opacity: 0;
+  animation: fade-in 0.9s ease-out 3.1s forwards;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fade-in 0.9s ease-out 3.5s forwards;
+}
+
+.button {
+  font-family: "Caslon", Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 12px 26px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.button.primary { background: var(--accent); color: var(--print); box-shadow: var(--shadow); }
+.button.primary:hover, .button.primary:focus-visible { background: #a84d12; }
+.button.quiet { color: #c9b48f; border: 1px solid rgba(201, 180, 143, 0.4); }
+
+@keyframes fade-in { to { opacity: 1; } }
+@keyframes develop { to { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero *, .developer { animation: none !important; opacity: 1; }
+  .developer { opacity: 0; }
+}
+
+/* --- The desk and the album page ------------------------------------------------------------------ */
+
+.desk {
+  background: #3b2416 url("img/desk_wood.jpg") center / cover;
+  padding: 80px 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 620px) minmax(0, 520px);
+  justify-content: center;
+  gap: 48px;
+  align-items: center;
+  box-shadow: inset 0 18px 30px -18px rgba(0, 0, 0, 0.7), inset 0 -18px 30px -18px rgba(0, 0, 0, 0.7);
+}
+
+.sheet {
+  background: var(--album) url("img/paper_fibres.png");
+  background-size: 512px;
+  padding: 48px 52px;
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+
+.sheet p { color: var(--ink); }
+
+.hand {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+.wall {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.print-small {
+  width: 100%;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.print-small:hover { transform: rotate(0deg) scale(1.04); }
+.r1 { transform: rotate(-4deg); }
+.r2 { transform: rotate(3deg) translateY(14px); }
+.r3 { transform: rotate(-2deg); }
+.r4 { transform: rotate(5deg) translateY(-8px); }
+.r5 { transform: rotate(-5deg) translateY(10px); }
+.r6 { transform: rotate(2deg); }
+
+.desk-second { grid-template-columns: minmax(0, 1100px); }
+
+.sheet-wide h2 { text-align: center; margin-bottom: 1.2em; }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 44px;
+}
+
+.facts p { margin: 0; }
+
+/* --- The family newspaper ------------------------------------------------------------------------- */
+
+.paper-section {
+  padding: 80px 16px;
+  background: var(--dark-soft);
+}
+
+.newspaper {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--newsprint);
+  padding: 40px 48px 32px;
+  box-shadow: var(--shadow);
+  color: #1f1a15;
+}
+
+.masthead {
+  text-align: center;
+  border-bottom: 3px double #1f1a15;
+  padding-bottom: 14px;
+  margin-bottom: 28px;
+}
+
+.paper-name {
+  font-family: "Playfair", serif;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.paper-line { font-size: 0.85rem; color: #5a5048; margin: 6px 0 0; }
+
+.lead h2 { font-family: "Playfair", serif; font-weight: 400; color: #1f1a15; font-size: 2rem; }
+.lead p { font-size: 1.05rem; max-width: 860px; }
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid #1f1a15;
+  margin-top: 24px;
+}
+
+.column { padding: 18px 18px 0; border-left: 1px solid rgba(31, 26, 21, 0.25); font-size: 0.95rem; }
+.column:first-child { border-left: none; padding-left: 0; }
+.column h3 { font-family: "Playfair", serif; font-weight: 400; font-size: 1.3rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* --- The gallery ---------------------------------------------------------------------------------- */
+
+.gallery {
+  background: #3b2416 url("img/desk_wood.jpg") center / cover;
+  padding: 80px 16px 96px;
+}
+
+.gallery h2 {
+  text-align: center;
+  color: var(--print);
+  font-family: "Playfair", serif;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  margin-bottom: 48px;
+}
+
+.shots {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 32px;
+}
+
+.shot {
+  margin: 0;
+  background: var(--print);
+  padding: 12px 12px 4px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.shot:hover { transform: rotate(0deg) scale(1.03); }
+.shot figcaption {
+  font-family: "Cedarville", cursive;
+  font-size: 1.5rem;
+  color: #4a3a2a;
+  text-align: center;
+  padding: 6px 0 4px;
+}
+
+.t1 { transform: rotate(-2deg); }
+.t2 { transform: rotate(1.5deg); }
+.t3 { transform: rotate(-1deg); }
+.t4 { transform: rotate(2deg); }
+.t5 { transform: rotate(-1.5deg); }
+.t6 { transform: rotate(1deg); }
+
+/* --- The playtest and the end --------------------------------------------------------------------- */
+
+.playtest {
+  padding: 80px 16px;
+  display: grid;
+  place-items: center;
+}
+
+.playtest .sheet { max-width: 640px; text-align: center; }
+
+.footer {
+  text-align: center;
+  padding: 56px 16px 64px;
+  color: #c9b48f;
+  border-top: 1px solid rgba(201, 180, 143, 0.15);
+}
+
+.footer-mark { width: 96px; margin: 0 auto 12px; }
+.footer-title { font-family: "Playfair", serif; letter-spacing: 0.12em; color: var(--accent-light); font-size: 1.4rem; margin-bottom: 8px; }
+.footer .small { font-size: 0.85rem; color: var(--faint); max-width: 640px; margin: 0 auto 0.6em; }
+
+/* --- Small screens -------------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .desk { grid-template-columns: minmax(0, 1fr); }
+  .columns { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .column:nth-child(3) { border-left: none; padding-left: 0; }
+  .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 17px; }
+  .sheet { padding: 32px 22px; }
+  .newspaper { padding: 28px 20px; }
+  .columns { grid-template-columns: minmax(0, 1fr); }
+  .column { border-left: none; padding-left: 0; }
+  .facts { grid-template-columns: minmax(0, 1fr); }
+  .shots { grid-template-columns: minmax(0, 1fr); }
+  .wall { grid-template-columns: repeat(2, 1fr); }
+}
