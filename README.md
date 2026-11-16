@@ -4,18 +4,20 @@ A single static page for the game, in the game's own look: the dark of its start
 the desk, the family newspaper, prints with faces drawn by the game's portrait code. Plain HTML and
 CSS, no build step, no scripts.
 
-## Publish on GitHub Pages
+## Publish
 
-1. Create an empty repository on GitHub, for example `OneMoreYearWeb`, and push this folder to it:
-   `git remote add origin https://github.com/jfrodin/OneMoreYearWeb.git` and `git push -u origin main`.
-2. On GitHub: the repository, Settings, Pages, Source "Deploy from a branch", branch `main`, folder `/`.
-3. The page is at `https://jfrodin.github.io/OneMoreYearWeb/` after a minute.
-4. Later, a domain of your own (for example onemoreyeargame.com): add it under Settings, Pages,
-   Custom domain, and point the domain's DNS at GitHub Pages as GitHub describes there.
+Live at https://onemoreyear.joakimfrodin.com since 2026-11-16, on the home server
+(`/srv/apps/onemoreyear/`, see `C:\Users\joaki\Documents\hemmaserver\README.md`). GitHub Pages is not used.
+
+1. Upload only the files for the page, never `.git` or `README.md`:
+   `scp -r index.html style.css playtest.json fonts img joakim@192.168.1.114:/srv/apps/onemoreyear/site/`
+2. Cloudflare keeps CSS for 4 hours, so raise `?v=N` on `style.css` in `index.html` whenever it changes.
+3. Push to GitHub too. The playtest build reads the newest version from `playtest.json` on GitHub
+   (`raw.githubusercontent.com/jfrodin/OneMoreYearWeb/main/playtest.json`), not from the home server.
 
 ## Where the pictures come from
 
-All of it comes from the game (`E:\Dev\OneMoreYear`), so the page always looks like the game:
+All of it comes from the game (`E:\Dev\Spel\OneMoreYear`), so the page always looks like the game:
 
 | File | Made with |
 |---|---|
@@ -31,5 +33,3 @@ No AI-generated images, as in the game.
 ## To do
 
 - "In development" at the top: make it a "Wishlist on Steam" button once there is a store page.
-
-Live at https://onemoreyear.joakimfrodin.com since 2026-11-16, on the home server (/srv/apps/onemoreyear/). Not on GitHub Pages. Cloudflare keeps CSS for 4 hours, so raise `?v=N` on `style.css` in `index.html` whenever it changes.
