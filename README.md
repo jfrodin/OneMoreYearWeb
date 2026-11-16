@@ -32,4 +32,4 @@ No AI-generated images, as in the game.
 
 - "In development" at the top: make it a "Wishlist on Steam" button once there is a store page.
 
-Live at https://onemoreyear.joakimfrodin.com since 2026-11-16, on the home server (/srv/apps/onemoreyear/). Not on GitHub Pages.
+Live at https://onemoreyear.joakimfrodin.com since 2026-11-16, on the home server (/srv/apps/onemoreyear/). Not on GitHub Pages. Cloudflare keeps CSS for 4 hours, so raise `?v=N` on `style.css` in `index.html` whenever it changes.
