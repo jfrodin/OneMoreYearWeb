@@ -442,3 +442,5 @@ p { margin: 0 0 1em; }
   text-align: center;
   padding: 12px 0 14px;
 }
+
+.footer a { color: inherit; text-underline-offset: 3px; }

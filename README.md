@@ -30,4 +30,6 @@ No AI-generated images, as in the game.
 
 ## To do
 
-- "Coming to Steam": a link to the store page once there is one.
+- "In development" at the top: make it a "Wishlist on Steam" button once there is a store page.
+
+Live at https://onemoreyear.joakimfrodin.com since 2026-11-16, on the home server (/srv/apps/onemoreyear/). Not on GitHub Pages.
