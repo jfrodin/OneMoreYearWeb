@@ -24,7 +24,7 @@ All of it comes from the game (`E:\Dev\Spel\OneMoreYear`), so the page always lo
 | `img/mark_face.png` | `Godot --path game -- --icon=PATH --face=480` (the maker's face, in the game's inks) |
 | `img/icon.png` | the game's icon, `game/brand/icon.png` (`--icon=PATH`) |
 | `img/prints/print_NN.png` | `Godot --path game -- --prints=DIR` (people from the game's own families) |
-| `img/shots/*.jpg` | `Godot --path game -- --screenshots=DIR`, scaled to 1280 px |
+| `img/shots/*.jpg` | `Godot --path game --resolution 1920x1080 -- --screenshots=DIR --country=uk --start=1950 --seed=1984 --years=34`, scaled to 1280 px. With a seed of its own the tour shows the family's own year, and no build label. The six now: USA (seed 1968, 18 years), UK (1984, 34), Sweden (555, 44), Germany (4021, 25). |
 | `img/desk_wood.jpg`, `img/paper_fibres.png` | the game's textures, ambientCG (CC0) |
 | `fonts/*` | the game's typefaces, SIL Open Font License (the licences are next to them) |
 
