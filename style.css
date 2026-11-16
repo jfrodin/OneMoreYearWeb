@@ -48,10 +48,33 @@ p { margin: 0 0 1em; }
   min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: 48px 16px 64px;
+  padding: 40px 16px 96px;
   text-align: center;
   color: var(--print);
+  position: relative;
 }
+
+/* "Read on": appears after the title, bobs gently, and takes you to the album. */
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: #c9b48f;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  text-decoration: none;
+  opacity: 0;
+  animation: fade-in 0.9s ease-out 4.2s forwards;
+}
+.scroll-cue svg { animation: bob 2.4s ease-in-out 5s infinite; }
+.scroll-cue:hover, .scroll-cue:focus-visible { color: var(--accent-light); }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
 
 .hero .by {
   font-family: "Lora", serif;
@@ -147,6 +170,7 @@ p { margin: 0 0 1em; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero *, .developer { animation: none !important; opacity: 1; }
+  html { scroll-behavior: auto; }
   .developer { opacity: 0; }
 }
 
@@ -444,3 +468,9 @@ p { margin: 0 0 1em; }
 }
 
 .footer a { color: inherit; text-underline-offset: 3px; }
+
+/* Short screens (a laptop): a smaller print, so the title, the button and "Read on" all fit. */
+@media (max-height: 860px) {
+  .print-large { width: min(240px, 60vw, 34svh); }
+  .hero h1 { margin-top: 26px; }
+}
